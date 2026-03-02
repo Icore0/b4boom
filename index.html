@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>b4boom — content creator</title>
+    <!-- Use JetBrains Mono from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="background-grid"></div>
+    <div class="vignette-overlay"></div>
+    <canvas id="particle-canvas" class="particle-bg"></canvas>
+
+    <!-- Custom Cursor -->
+    <div id="cursor" class="cursor"></div>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-item active"><span class="nav-dot"></span> <span
+                            class="nav-text">HOME</span></a></li>
+                <li><a href="#about" class="nav-item"><span class="nav-dot"></span> <span class="nav-text">ABOUT
+                            ME</span></a></li>
+                <li><a href="#achievements" class="nav-item"><span class="nav-dot"></span> <span
+                            class="nav-text">ACHIEVEMENTS</span></a></li>
+                <li><a href="#missions" class="nav-item"><span class="nav-dot"></span> <span
+                            class="nav-text">MISSIONS</span></a></li>
+                <li><a href="#contact" class="nav-item"><span class="nav-dot"></span> <span
+                            class="nav-text">CONTACT</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-wrapper">
+            <!-- Hero Section -->
+            <section id="home" class="section hero">
+                <div class="hero-card reveal-scale">
+                    <div class="hero-content">
+                        <div class="hero-title-wrap"
+                            style="transform-origin: center center; will-change: transform; display: inline-block;">
+                            <h1 class="hero-title glitch pixel-title" id="pixelTitle" data-text="b4boom" tabindex="0"
+                                aria-label="b4boom">
+                                <span class="letter">b</span><span class="letter">4</span><span
+                                    class="letter">b</span><span class="letter">o</span><span
+                                    class="letter">o</span><span class="letter">m</span>
+                            </h1>
+                            <div class="birds-container" id="birdsContainer" aria-hidden="true"></div>
+                        </div>
+                        <div class="status-badge">
+                            <div class="status-dot"></div>
+                            unemployed 💀
+                        </div>
+                        <p class="hero-subtitle">Hi, wsp</p>
+
+                        <div class="social-circles">
+                            <a href="https://www.instagram.com/aksha.tt_/" target="_blank"
+                                class="glass-circle interactive">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="icon">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                            <a href="https://open.spotify.com/user/31zpktvvfzchzspwe5muhzjxrp3y" target="_blank"
+                                class="glass-circle interactive">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="icon">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path
+                                        d="M8 11.85c2.61-.75 5.52-.57 8.15.54M7 15.5c2.4-.6 5.1-.3 7.5.8M9 8.5c2.65-.95 6-.5 8.5 1">
+                                    </path>
+                                </svg>
+                            </a>
+                            <button id="discord-btn" class="glass-circle interactive" title="Copy Discord Username"
+                                onclick="copyDiscord()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="icon">
+                                    <path
+                                        d="M20.2 6.5C18.6 5.8 16.9 5.3 15 5A11 11 0 0 0 14.5 6C12.8 5.7 11.2 5.7 9.5 6A11 11 0 0 0 9 5C7.1 5.3 5.4 5.8 3.8 6.5C.7 10.9-.3 15.2.1 19.5C2 21 4 21.8 6 22.3A12.3 12.3 0 0 0 7.3 20.3A10.8 10.8 0 0 1 5.4 19.2C5.9 18.8 6.3 18.5 6.7 18.1C10.2 19.7 13.8 19.7 17.3 18.1C17.7 18.5 18.1 18.8 18.6 19.2A10.8 10.8 0 0 1 16.7 20.3C17.2 21 17.8 21.7 18 22.3C20 21.8 22 21 23.9 19.5C24.4 14.5 23 10.2 20.2 6.5Z" />
+                                    <circle cx="9" cy="12" r="1" fill="white" stroke="none" />
+                                    <circle cx="15" cy="12" r="1" fill="white" stroke="none" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-indicator vertical">
+                    <span class="scroll-text">SCROLL</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="section about">
+                <div class="about-header reveal-right">
+                    <div class="header-target">
+                        <div class="target-dot"></div>
+                    </div>
+                    <h2 class="section-title">ABOUT_ME</h2>
+                </div>
+                <div class="about-divider reveal-right"></div>
+
+                <div class="about-content-grid">
+                    <div class="magnetic-card-wrap reveal-scale">
+                        <div class="about-card magnetic-card-target glass-panel">
+                            <div class="card-glare"></div>
+                            <p class="bio-text">
+                                I'm <strong>Akshatt</strong> aka <strong>b4boom</strong> &mdash; a 16 y.o. guy trying to
+                                get
+                                better, master different skills, making connections. Trying to get my life 100x
+                                better.<br><br>I dream to have a big business myself, and not run in rat race (may die
+                                trying to build big business), would like to be in healthy loyal relation (thats why
+                                dated
+                                no one yet 😭) waste of potential rizz OMG! I like to play football too.
+                            </p>
+
+                            <div class="about-details">
+                                <div class="detail-item status-open">
+                                    <div class="status-dot green"></div> open to collabs
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills-container reveal-scale" style="transition-delay: 0.1s;">
+                        <h3 class="subsection-title">SKILL_SET</h3>
+                        <div class="skill-chips">
+                            <div class="chip social-pill interactive" data-skill="editor">
+                                <span class="social-symbol">🎬</span>
+                                <span class="social-platform">Editor</span>
+                            </div>
+                            <div class="chip social-pill interactive" data-skill="gamer">
+                                <span class="social-symbol">🎮</span>
+                                <span class="social-platform">Gamer</span>
+                            </div>
+                            <div class="chip social-pill interactive" data-skill="ai">
+                                <span class="social-symbol">🤖</span>
+                                <span class="social-platform">AI</span>
+                            </div>
+                            <div class="chip social-pill interactive" data-skill="cook">
+                                <span class="social-symbol">👨‍🍳</span>
+                                <span class="social-platform">Cook</span>
+                            </div>
+                            <div class="chip social-pill interactive" data-skill="sketch">
+                                <span class="social-symbol">🎨</span>
+                                <span class="social-platform">Sketch</span>
+                            </div>
+                            <div class="chip social-pill interactive" data-skill="rizzler">
+                                <span class="social-symbol">😎</span>
+                                <span class="social-platform">Rizzler</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements Section -->
+            <section id="achievements" class="section compact">
+                <h2 class="section-title reveal-left">ACHIEVEMENTS</h2>
+
+                <div class="achievements-container reveal-scale">
+                    <div class="achievements-tabs">
+                        <button class="tab-btn active interactive" data-tab="ach-1"
+                            onclick="window.changeAchievementTab(this)">100+ Followers</button>
+                        <button class="tab-btn interactive" data-tab="ach-2"
+                            onclick="window.changeAchievementTab(this)">4M+ Views</button>
+                        <button class="tab-btn interactive" data-tab="ach-3"
+                            onclick="window.changeAchievementTab(this)">2x Comp Winner</button>
+                    </div>
+
+                    <div class="achievements-content glass-panel">
+                        <div id="ach-1" class="ach-pane active">
+                            <h3>COMMUNITY_GROWTH</h3>
+                            <p>Successfully built an engaged audience from scratch, crossing the <strong>100+
+                                    followers</strong> milestone. Consistency and quality content were key.</p>
+                        </div>
+                        <div id="ach-2" class="ach-pane">
+                            <h3>VIRAL_REACH</h3>
+                            <p>Created a reel that resonated massively, shattering expectations to cross the
+                                <strong>4
+                                    million+ views</strong> mark. A testament to understanding algorithms and
+                                audience
+                                psychology.
+                            </p>
+                        </div>
+                        <div id="ach-3" class="ach-pane">
+                            <h3>TOP_TIER_EDITING</h3>
+                            <p>I won 2 video editing competitions in school like competed with different schools and
+                                managed to come first both time when I participated :p</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="missions" class="section compact">
+                <h2 class="section-title reveal-right">MISSIONS</h2>
+
+                <div class="missions-grid reveal-scale">
+                    <!-- Mission 1 -->
+                    <div class="magnetic-card-wrap">
+                        <div class="mission-card magnetic-card-target square-plate glass-panel interactive">
+                            <div class="card-glare"></div>
+                            <div class="mission-info">
+                                <h3 class="mission-name">Earn my 1st $1 million</h3>
+                                <p class="mission-desc">0% - The grind begins.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mission 2 -->
+                    <div class="magnetic-card-wrap">
+                        <div class="mission-card magnetic-card-target square-plate glass-panel interactive">
+                            <div class="card-glare"></div>
+                            <div class="mission-info">
+                                <h3 class="mission-name">Find loyal girl</h3>
+                                <p class="mission-desc">Status: Searching...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mission 3 -->
+                    <div class="magnetic-card-wrap">
+                        <div class="mission-card magnetic-card-target square-plate glass-panel interactive">
+                            <div class="card-glare"></div>
+                            <div class="mission-info">
+                                <h3 class="mission-name">Get jacked</h3>
+                                <p class="mission-desc">on diet rn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section contact">
+                <div class="about-header reveal-right">
+                    <div class="header-target">
+                        <div class="target-dot"></div>
+                    </div>
+                    <h2 class="section-title">CONTACT_ME</h2>
+                </div>
+                <div class="about-divider reveal-right"></div>
+
+                <div class="contact-grid">
+                    <div class="magnetic-card-wrap reveal-scale">
+                        <div class="contact-form-container magnetic-card-target glass-panel">
+                            <div class="card-glare"></div>
+                            <h3>LET'S BUILD SOMETHING</h3>
+                            <p class="form-desc">drop a message or find me on the grid</p>
+                            <form class="contact-form" action="https://formsubmit.co/frboombusiness@gmail.com"
+                                method="POST">
+                                <div class="form-group">
+                                    <label>NAME</label>
+                                    <input type="text" name="name" placeholder="your_name"
+                                        class="dark-glass-input interactive" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>EMAIL</label>
+                                    <input type="email" name="email" placeholder="your@email.com"
+                                        class="dark-glass-input interactive" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>MESSAGE</label>
+                                    <textarea name="message" placeholder="your message..."
+                                        class="dark-glass-input interactive" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="submit-btn-dark interactive">TRANSMIT_MSG
+                                    &blacktriangleright;</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="find-me-container reveal-right">
+                        <h3>FIND_ME_ON</h3>
+                        <div class="social-list-pills">
+                            <a href="https://www.instagram.com/aksha.tt_/" target="_blank"
+                                class="social-pill interactive">
+                                <span class="social-symbol">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="icon">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </span>
+                                <span class="social-platform">Instagram</span>
+                                <span class="social-handle">@aksha.tt_</span>
+                            </a>
+                            <a href="https://open.spotify.com/user/31zpktvvfzchzspwe5muhzjxrp3y" target="_blank"
+                                class="social-pill interactive">
+                                <span class="social-symbol">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="icon">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path
+                                            d="M8 11.85c2.61-.75 5.52-.57 8.15.54M7 15.5c2.4-.6 5.1-.3 7.5.8M9 8.5c2.65-.95 6-.5 8.5 1">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span class="social-platform">Spotify</span>
+                                <span class="social-handle">b4boom</span>
+                            </a>
+                            <button class="social-pill interactive" onclick="copyDiscord()">
+                                <span class="social-symbol">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="icon">
+                                        <path
+                                            d="M20.2 6.5C18.6 5.8 16.9 5.3 15 5A11 11 0 0 0 14.5 6C12.8 5.7 11.2 5.7 9.5 6A11 11 0 0 0 9 5C7.1 5.3 5.4 5.8 3.8 6.5C.7 10.9-.3 15.2.1 19.5C2 21 4 21.8 6 22.3A12.3 12.3 0 0 0 7.3 20.3A10.8 10.8 0 0 1 5.4 19.2C5.9 18.8 6.3 18.5 6.7 18.1C10.2 19.7 13.8 19.7 17.3 18.1C17.7 18.5 18.1 18.8 18.6 19.2A10.8 10.8 0 0 1 16.7 20.3C17.2 21 17.8 21.7 18 22.3C20 21.8 22 21 23.9 19.5C24.4 14.5 23 10.2 20.2 6.5Z" />
+                                        <circle cx="9" cy="12" r="1" fill="currentColor" stroke="none" />
+                                        <circle cx="15" cy="12" r="1" fill="currentColor" stroke="none" />
+                                    </svg>
+                                </span>
+                                <span class="social-platform">Discord</span>
+                                <span class="social-handle">frboom_</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Skill Modal -->
+    <div id="skill-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <button id="close-modal" class="close-btn interactive">&times;</button>
+            <h3 id="modal-title" class="modal-title"></h3>
+            <p id="modal-body" class="modal-body"></p>
+        </div>
+    </div>
+
+    <!-- Fallback icons - you can replace with real SVGs later -->
+    <svg style="display:none;" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </symbol>
+        <!-- Adding more symbols as needed -->
+    </svg>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
